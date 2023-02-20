@@ -27,7 +27,7 @@ puts "#{User.count} users were created."
     description: Faker::Lorem.paragraph(sentence_count: 2, random_sentences_to_add: 2),
     price: rand(5..200),
     location: Faker::Address.city,
-    user: User.all.sample
+    administrator: User.all.sample
   )
 end
 puts "#{Event.count} events were created."
