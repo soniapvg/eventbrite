@@ -13,8 +13,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('attendances')
   User.create(
     first_name: first_name,
     last_name: last_name,
-    description: Faker::Lorem.paragraph,
-    email: email
+    email: email,
+    password: Faker::Internet.password(min_length: 8)
   )
 end
 puts "#{User.count} users were created."
