@@ -84,7 +84,7 @@ Rails.application.configure do
     port: 587,
     domain: 'soniapavageau.fr',
     user_name: 'contact@soniapavageau.fr',
-    password: 'mypassword',
+    password: Rails.application.credentials.smtp_alwaysdata[:password],
     authentication: :plain,
     enable_starttls_auto: true
   }

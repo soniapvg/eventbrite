@@ -81,6 +81,8 @@ development:
 #
 production:
   <<: *default
-  database: Eventbrite
+  database: soniapavageau_thp_database
   username: Eventbrite
-  password: <%= ENV["EVENTBRITE_DATABASE_PASSWORD"] %>
+  password: Rails.application.credentials.database[:password]
+  timeout: 5000
+  host: postgresql-soniapavageau.alwaysdata.net
