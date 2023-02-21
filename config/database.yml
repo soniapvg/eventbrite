@@ -81,8 +81,8 @@ development:
 #
 production:
   <<: *default
+  host: postgresql-soniapavageau.alwaysdata.net
   database: soniapavageau_thp_database
-  username: Eventbrite
+  username: soniapavageau
   password: Rails.application.credentials.database[:password]
   timeout: 5000
-  host: postgresql-soniapavageau.alwaysdata.net
