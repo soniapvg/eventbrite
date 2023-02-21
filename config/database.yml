@@ -84,5 +84,6 @@ production:
   host: postgresql-soniapavageau.alwaysdata.net
   database: soniapavageau_thp_database
   username: soniapavageau
-  password: Rails.application.credentials.database[:password]
+  # password: Rails.application.credentials.database[:password]
+  port: 5432
   timeout: 5000
