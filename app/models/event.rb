@@ -17,7 +17,7 @@ class Event < ApplicationRecord
   private
 
   def duration_must_be_multiple_of_five
-    return if (duration % 5).zero?
+    return if duration.present? && (duration % 5).zero?
 
     errors.add(:duration, 'must be a multiple of 5')
   end

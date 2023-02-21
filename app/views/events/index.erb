@@ -1,0 +1,15 @@
+<!-- Alerts -->
+<% flash.each do |type, message| %>
+  <div class="uk-alert-<%= type %>" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p><%= message %></p>
+  </div>
+<% end %>
+
+<!-- All events -->
+<% @events.each do |event| %>
+<article class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin">
+  <h2><%= event.title %></h2>
+  <p><%= truncate(event.description, length: 17) %> <%= link_to "Voir l'event", event %></p>
+</article>
+<% end %>

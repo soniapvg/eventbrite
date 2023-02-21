@@ -1,0 +1,65 @@
+<!-- Alerts -->
+<% flash.each do |type, message| %>
+  <div class="uk-alert-<%= type %>" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p><%= message %></p>
+  </div>
+<% end %>
+
+<% if @event.errors.any? %>
+  <div class="uk-alert-danger" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p>Nous n'avons pas réussi à enregistrer ton event car :</p>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<article class="uk-card uk-card-default uk-card-body uk-margin">
+  <h2>Publie un event</h2>
+  <%= form_with model: @event, class: "uk-form-stacked" do |form| %>
+    <fieldset class="uk-fieldset">
+
+      <!-- Title -->
+      <div class="uk-margin">
+        <%= form.label :title, "Titre", class: "uk-form-label" %>
+        <div class="uk-controls">
+          <%= form.text_field :content, class: "uk-textarea" %>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="uk-margin">
+        <%= form.label :description, "Description", class: "uk-form-label" %>
+        <div class="uk-controls">
+          <%= form.text_area :description, class: "uk-input" %>
+        </div>
+      </div>
+
+      <!-- Date -->
+      <div class="uk-margin">
+        <%= form.label :start_date, "Description", class: "uk-form-label" %>
+        <div class="uk-controls">
+          <%= form.date_field :start_date, class: "uk-input" %>
+        </div>
+      </div>
+
+      <!-- Duration -->
+      <div class="uk-margin">
+        <%= form.label :duration, "Description", class: "uk-form-label" %>
+        <div class="uk-controls">
+          <%= form.datetime_field :start_date, class: "uk-input" %>
+        </div>
+      </div>
+
+      <!-- Location -->
+
+      <!-- Price -->
+    
+    </fieldset>
+    <%= form.submit "Publier le event", class: "uk-button uk-button-default" %>
+  <% end %>
+</article>

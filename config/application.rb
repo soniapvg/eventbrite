@@ -33,5 +33,8 @@ module Eventbrite
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Set app lang
+    config.i18n.default_locale = :fr
   end
 end

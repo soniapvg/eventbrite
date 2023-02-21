@@ -1,0 +1,35 @@
+<article class="uk-card uk-card-default uk-card-body uk-margin">
+   <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+   <hr>
+   <p><b><%= @user.events.count %></b> event<%= @user.events.count.zero? ? '' : 's' %> crée<%= @user.events.count.zero? ? '' : 's' %></p>
+   <p><b><%= @user.purchased_events.count %></b> event<%= @user.events.count.zero? ? '' : 's' %> acheté<%= @user.events.count.zero? ? '' : 's' %></p>
+   <hr>
+   <ul class="uk-list">
+      <% unless @user.description.nil? %>
+         <li>
+            <b>Description</b>
+            <br>
+            <%= @user.description %>
+         </li>
+      <% end %>
+      <li>
+         <b>Email</b>
+         <br>
+         <%= @user.email %>
+      </li>
+   </ul>
+</article>
+
+<% @user.events.each do |event| %>
+   <article class="uk-card uk-card-default uk-card-body uk-margin">
+      <h2><%= event.title %></h2>
+      <hr>
+      <p class="uk-margin-large"><%= event.content %></p>
+
+      <% if current_user?(@user) %>
+         <div class="uk-margin-large">
+            <%= link_to "Modifier l'event'", edit_event_path(event), class: "uk-button uk-button-default" %>
+         </div>
+      <% end %>
+   </article>
+<% end %>

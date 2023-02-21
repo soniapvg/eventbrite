@@ -28,4 +28,5 @@ end
 group :development do
   gem "faker"
   gem "pry"
+  gem "letter_opener"
 end
