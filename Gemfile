@@ -30,3 +30,7 @@ group :development do
   gem "pry"
   gem "letter_opener"
 end
+
+group :production do
+  gem "faker"
+end
